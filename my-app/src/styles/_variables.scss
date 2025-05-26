@@ -1,0 +1,36 @@
+:root {
+    /* SCSS HEX */
+    --background-primary: #204e4aff;
+    --background-secondary: #090909ff;
+    --text-primary: #dae7e7ff;
+    --text-secondary: #bacdb0ff;
+    --accent-primary: #729b79ff;
+    --accent-secondary: #204e4aff;
+
+    // Typography
+    --font-family-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    --font-size-base: 16px;
+    --line-height-base: 1.5;
+
+    // Spacing
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+
+    // Breakpoints
+    --breakpoint-sm: 640px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 1024px;
+    --breakpoint-xl: 1280px;
+
+    // Border radius
+    --border-radius-sm: 0.25rem;
+    --border-radius-md: 0.5rem;
+    --border-radius-lg: 1rem;
+
+    // Transitions
+    --transition-base: 0.2s ease;
+    --transition-slow: 0.3s ease;
+}

@@ -1,0 +1,50 @@
+@import '../../styles/variables';
+
+.footer {
+    background-color: var(--background-secondary);
+    padding: var(--spacing-xl) 0;
+    margin-top: auto;
+
+    &__container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 var(--spacing-xl);
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: var(--spacing-md);
+    }
+
+    &__social {
+        display: flex;
+        gap: var(--spacing-lg);
+    }
+
+    &__social-link {
+        color: var(--text-secondary);
+        text-decoration: none;
+        font-weight: 500;
+        transition: color var(--transition-base);
+
+        &:hover {
+            color: var(--accent-primary);
+        }
+    }
+
+    &__copyright {
+        color: var(--text-secondary);
+        font-size: 0.875rem;
+    }
+}
+
+// Responsive adjustments
+@media (max-width: var(--breakpoint-md)) {
+    .footer {
+        &__social {
+            gap: var(--spacing-md);
+        }
+    }
+}
