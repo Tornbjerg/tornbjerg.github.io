@@ -100,7 +100,7 @@ const Navigation: React.FC<NavigationProps> = ({ sections }) => {
                                 <a href="https://github.com/Tornbjerg" target="_blank" rel="noopener noreferrer">
                                     GitHub
                                 </a>
-                                <a href="https://linkedin.com/in/your-profile" target="_blank" rel="noopener noreferrer">
+                                <a href="https://linkedin.com/in/benjamin-tornbjerg-millant" target="_blank" rel="noopener noreferrer">
                                     LinkedIn
                                 </a>
                             </motion.div>

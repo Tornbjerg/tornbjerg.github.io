@@ -10,7 +10,7 @@ import scrabbleBotImage from '../../assets/images/ScrabbleBot.png';
 import MMWImage from '../../assets/images/MMW_Logo.jpg';
 import MovieHouseImage from '../../assets/images/MovieHouse_Logo.jpg';
 import LunarLanderImage from '../../assets/images/LunarLander.png';
-
+import WebPageImage from '../../assets/images/WebPage.png';
 interface Project {
     id: string;
     title: string;
@@ -32,7 +32,7 @@ const ProjectShowcase: React.FC = () => {
         {
             id: '1',
             title: 'Analysing the Copenhagen infrastructure with Word2Vec',
-            description: 'Bachelor project at IT University of Copenhagen, researching the use of Word2Vec to capture the geographical features in the infrastructure of Copenhagen. The project intention was to analyse the novel use of embeddings to capture geographical features based on behavioural data.',
+            description: 'Bachelor project at IT University of Copenhagen, researching the use of Word2Vec to capture the geographical features in the infrastructure of Copenhagen. Embedding stations based on their travelers commuting behaviour.',
             technologies: ['Python', 'SQL', 'Word2Vec', 'Numpy', 'Matplotlib', 'Seaborn', 'OSM', 'Embeddings', 'Geospatial Data', 'Natural Language Processing'],
             githubUrl: 'https://github.com/Tornbjerg/Word2Vec-Copenhagen',
             collaborators: ['Monica Hardt'],
@@ -41,7 +41,7 @@ const ProjectShowcase: React.FC = () => {
         {
             id: '4',
             title: 'My Mental Wellbeing',
-            description: 'WebApplication for a mental health tech-startup with focus on providing resources to improve mental wellbeing for individuals. I had the pleasure of working as part of the full-stack team as well as the design team. Primarily focused on gamification, microinteractions, and user experience.',
+            description: 'WebApplication for a mental health tech-startup with focus on providing resources to improve mental wellbeing for individuals. I had the pleasure of working as part of the full-stack team as well as the design team. Primarily focused on gamification, microinteractions, user experience, and setting up proper CI/CD pipelines.', 
             technologies: ['React', 'TypeScript', 'SCSS', 'Deployment', 'CI/CD Pipeline', 'Docker', 'Design', 'Gamification'],
             githubUrl: 'Not Available',
             collaborators: ['Wonderful people @MyMentalWellbeing'],
@@ -74,6 +74,15 @@ const ProjectShowcase: React.FC = () => {
             collaborators: [],
             image: MovieHouseImage
         },
+        {
+            id: '6',
+            title: 'This Website',
+            description: 'This website is a showcase of my projects, interests and skills. It is built with React and Framer Motion. Updates are made to the website as I learn new technologies and skills.',
+            technologies: ['React', 'TypeScript', 'SCSS', 'Deployment', 'CI/CD Pipeline', 'Docker', 'Design', 'Gamification'],
+            githubUrl: 'https://github.com/Tornbjerg/tornbjerg.github.io',
+            collaborators: [],
+            image: WebPageImage
+        }
     ];
 
 

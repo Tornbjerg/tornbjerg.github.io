@@ -49,13 +49,17 @@
     }
 
     &__description {
+        margin-bottom: 0;
         font-size: 1.1rem;
         color: #666;
-        margin-bottom: 2rem;
         line-height: 1.6;
         max-width: 600px;
         margin-left: auto;
         margin-right: auto;
+
+        &--second {
+            margin-bottom: 2rem;
+        }
 
         @media (max-width: 768px) {
             font-size: 1rem;
@@ -139,7 +143,7 @@
     pointer-events: none;
     backdrop-filter: blur(2px);
     background: rgba(0, 0, 0, 0.08);
-    transition: backdrop-filter 0.7s , background 0.7s;
+    transition: backdrop-filter 0.7s, background 0.7s;
 }
 
 // Animations
@@ -159,5 +163,47 @@
 
     60% {
         transform: translateY(-5px);
+    }
+}
+
+.technology-container {
+    display: inline-block;
+    min-width: 200px;
+    height: 1.5em;
+    position: relative;
+    vertical-align: middle;
+}
+
+.technology {
+    display: inline-block;
+    color: var(--accent-color, #1ced23);
+    font-weight: 600;
+    background: linear-gradient(45deg, #2F2F2F, #4F4F4F);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding: 0 0.2em;
+    position: relative;
+    white-space: nowrap;
+}
+
+.cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1em;
+    background: var(--accent-color, #1ced23);
+    margin-left: 2px;
+    vertical-align: middle;
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+
+    from,
+    to {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
     }
 }

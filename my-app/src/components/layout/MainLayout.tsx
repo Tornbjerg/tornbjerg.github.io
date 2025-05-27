@@ -6,12 +6,13 @@ import ProjectShowcase from '../projects/ProjectShowcase';
 // import Contact from '../sections/Contact';
 import './MainLayout.scss';
 import Home from '../sections/Home';
+import About from '../sections/About';
 
 const MainLayout: React.FC = () => {
     const sections = [
         { id: 'Home', component: <Home /> },
-        // { id: 'about', component: <About /> },
         { id: 'projects', component: <ProjectShowcase /> },
+        { id: 'about', component: <About /> },
         // { id: 'contact', component: <Contact /> }
     ];
 
