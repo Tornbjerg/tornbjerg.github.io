@@ -9,13 +9,14 @@
     display: flex;
     flex-direction: column;
     height: 100%;
-    width: 25vw;
+    width: 35vw;
     border: none;
     box-shadow: none;
 
     &:hover {
         transform: none;
         box-shadow: none;
+        
 
         .project-card__image {
             img {
@@ -36,6 +37,7 @@
     }
 }
 
+/* Before the hover effect. The image and the title of the project card*/
 .project-card__image {
     position: relative;
     width: 100%;
@@ -43,8 +45,9 @@
     overflow: hidden;
     margin: 0;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
 
     &::before {
         content: '';
@@ -60,8 +63,7 @@
     h3 {
         position: absolute;
         z-index: 3;
-        text-align: center;
-        color: var(--text-primary);
+        -webkit-text-fill-color: #1ced23;
         font-size: 1.5rem;
         font-weight: 900;
         text-transform: uppercase;
@@ -84,6 +86,7 @@
     }
 }
 
+/* After the hover effect. Container for the content of the project card*/
 .project-card__overlay {
     position: absolute;
     top: 0;
@@ -100,6 +103,7 @@
     z-index: 2;
     overflow-y: auto;
     padding: var(--spacing-md);
+    background: linear-gradient(45deg, #2a2a2a, #4a4a4a);
 }
 
 .project-card__content {
@@ -113,50 +117,14 @@
     text-align: center;
 
     p {
-        color: rgba(255, 255, 255, 0.9);
-        line-height: 1.6;
-        font-size: 0.95rem;
-        font-weight: 300;
+        color: var(--background-primary);
+        line-height: 2;
+        font-size: 1rem;
+        font-weight: 450;
+        text-align:justify;
     }
 }
 
-.project-card__technologies {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--spacing-xs);
-    margin: var(--spacing-sm) 0;
-    justify-content: center;
-
-    overflow-y: auto;
-    padding: var(--spacing-xs) 0;
-
-    &::-webkit-scrollbar-track {
-        background: rgba(255, 255, 255, 0.1);
-    }
-
-    &::-webkit-scrollbar-thumb {
-        background: rgba(255, 255, 255, 0.2);
-        border-radius: 2px;
-    }
-}
-
-.project-card__technology {
-    background-color: rgba(255, 255, 255, 0.1);
-    color: var(--text-primary);
-    padding: 0.35rem 0.75rem;
-    border-radius: 0;
-    font-size: 0.8rem;
-    font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    backdrop-filter: blur(4px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    white-space: nowrap;
-
-    &:hover {
-        background-color: rgba(255, 255, 255, 0.2);
-    }
-}
 
 .project-card__collaborators {
     display: flex;
@@ -168,14 +136,14 @@
 
     span:first-child {
         font-weight: 600;
-        color: var(--text-primary);
+        color: var(--background-primary);
         font-size: 0.9rem;
         text-transform: uppercase;
         letter-spacing: 0.5px;
     }
 
     span:not(:first-child) {
-        color: var(--text-primary);
+        color: var(--background-primary);
         font-size: 0.85rem;
         white-space: nowrap;
         overflow: hidden;
@@ -190,11 +158,11 @@
 
 a {
     display: inline-block;
-    color: var(--text-primary);
+    color: var(--background-primary) !important;
     text-decoration: none;
     font-weight: 500;
     padding: 0.75rem 1.5rem;
-    border: 2px solid var(--text-primary);
+    border: 2px solid var(--background-primary);
     border-radius: 0;
     transition: all 0.3s ease;
     margin-top: auto;
