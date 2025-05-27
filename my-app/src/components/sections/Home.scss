@@ -1,0 +1,209 @@
+@import '../../styles/variables';
+
+.home {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    text-align: center;
+    background: linear-gradient(135deg,
+            var(--background-primary) 0%,
+            rgba(180, 172, 151, 0.95) 100%);
+
+    &__content {
+        max-width: 800px;
+        margin: 0 auto;
+        z-index: 1;
+    }
+
+    &__title {
+        font-size: 4rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        background: linear-gradient(45deg, #2F2F2F, #4F4F4F);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        line-height: 1.2;
+
+        @media (max-width: 768px) {
+            font-size: 3rem;
+        }
+
+        @media (max-width: 480px) {
+            font-size: 2.5rem;
+        }
+    }
+
+    &__subtitle {
+        font-size: 1.5rem;
+        font-weight: 500;
+        color: #666;
+        margin-bottom: 1.5rem;
+        line-height: 1.4;
+
+        @media (max-width: 768px) {
+            font-size: 1.25rem;
+        }
+    }
+
+    &__description {
+        margin-bottom: 0;
+        font-size: 1.1rem;
+        color: #666;
+        line-height: 1.6;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+
+        &--second {
+            margin-bottom: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            font-size: 1rem;
+        }
+    }
+
+    &__cta {
+        margin-top: 2rem;
+    }
+
+    &__cta-button {
+        background: linear-gradient(45deg, #2a2a2a, #4a4a4a);
+        color: white;
+        border: none;
+        padding: 1rem 2rem;
+        font-size: 1.1rem;
+        font-weight: 500;
+        border-radius: 30px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+
+        &:hover {
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        @media (max-width: 768px) {
+            padding: 0.8rem 1.6rem;
+            font-size: 1rem;
+        }
+    }
+
+    &__scroll-indicator {
+        position: absolute;
+        bottom: 2rem;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+        color: #666;
+        font-size: 0.9rem;
+    }
+
+    &__scroll-arrow {
+        font-size: 1.5rem;
+        animation: bounce 2s infinite;
+    }
+}
+
+.asterisk {
+    -webkit-text-fill-color: #1ced23;
+    font-size: 5rem;
+    font-weight: 900;
+    cursor: none;
+    position: relative;
+    z-index: 10;
+}
+
+.name {
+    cursor: none;
+}
+
+.custom-cursor {
+    position: fixed;
+    width: auto;
+    height: 25vh;
+    border-radius: 45%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: filter 0.2s;
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.2));
+}
+
+.custom-cursor-blur {
+    position: fixed;
+    inset: 0;
+    z-index: 9998;
+    pointer-events: none;
+    backdrop-filter: blur(2px);
+    background: rgba(0, 0, 0, 0.08);
+    transition: backdrop-filter 0.7s, background 0.7s;
+}
+
+// Animations
+@keyframes bounce {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-10px);
+    }
+
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+.technology-container {
+    display: inline-block;
+    min-width: 200px;
+    height: 1.5em;
+    position: relative;
+    vertical-align: middle;
+}
+
+.technology {
+    display: inline-block;
+    color: var(--accent-color, #1ced23);
+    font-weight: 600;
+    background: linear-gradient(45deg, #2F2F2F, #4F4F4F);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding: 0 0.2em;
+    position: relative;
+    white-space: nowrap;
+}
+
+.cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1em;
+    background: var(--accent-color, #1ced23);
+    margin-left: 2px;
+    vertical-align: middle;
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+
+    from,
+    to {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}

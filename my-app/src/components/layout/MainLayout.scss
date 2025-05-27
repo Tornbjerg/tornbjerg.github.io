@@ -1,0 +1,117 @@
+@import '../../styles/variables';
+
+.main-layout {
+    min-height: 100vh;
+    background-color: var(--background-primary);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+
+.section {
+    min-height: 100vh;
+    padding: 2rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+
+    // Add subtle background patterns or gradients to sections
+    &:nth-child(odd) {
+        background: linear-gradient(135deg,
+                var(--background-primary) 0%,
+                rgba(180, 172, 151, 0.95) 100%);
+    }
+
+    &:nth-child(even) {
+        background: linear-gradient(135deg,
+                rgba(180, 172, 151, 0.95) 100%,
+                var(--background-primary) 0%);
+    }
+
+    // Add decorative elements
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(90deg,
+                transparent 0%,
+                rgba(0, 0, 0, 0.1) 50%,
+                transparent 100%);
+    }
+
+    // Responsive adjustments
+    @media (max-width: 768px) {
+        padding: 3rem 1rem;
+    }
+
+    @media (max-width: 480px) {
+        padding: 2rem 1rem;
+    }
+}
+
+// Dark mode support
+@media (prefers-color-scheme: dark) {
+    .main-layout {
+        background-color: var(--background-secondary);
+        color: var(--text-secondary);
+    }
+
+    .section {
+        &:nth-child(odd) {
+            background: linear-gradient(135deg,
+                    rgba(26, 26, 26, 0.95) 0%,
+                    rgba(30, 30, 30, 0.95) 100%);
+        }
+
+        &:nth-child(even) {
+            background: linear-gradient(135deg,
+                    rgba(30, 30, 30, 0.95) 0%,
+                    rgba(26, 26, 26, 0.95) 100%);
+        }
+
+        &::before {
+            background: linear-gradient(90deg,
+                    transparent 0%,
+                    rgba(255, 255, 255, 0.1) 50%,
+                    transparent 100%);
+        }
+    }
+}
+
+// Smooth scrolling for the entire page
+html {
+    scroll-behavior: smooth;
+}
+
+// Custom scrollbar
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 4px;
+
+    &:hover {
+        background: #999;
+    }
+}
+
+// Dark mode scrollbar
+@media (prefers-color-scheme: dark) {
+    ::-webkit-scrollbar-thumb {
+        background: #444;
+
+        &:hover {
+            background: #666;
+        }
+    }
+}
