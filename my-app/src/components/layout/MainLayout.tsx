@@ -7,6 +7,7 @@ import ProjectShowcase from '../projects/ProjectShowcase';
 import './MainLayout.scss';
 import Home from '../sections/Home';
 import About from '../sections/About';
+import ResponsiveOverlay from '../responsiveIdentifyer/responsiveOverlay';
 
 const MainLayout: React.FC = () => {
     const sections = [
