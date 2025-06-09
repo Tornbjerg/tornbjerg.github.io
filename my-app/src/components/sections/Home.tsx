@@ -51,6 +51,7 @@ const Home: React.FC = () => {
 
     return (
         <div className="home">
+
             <motion.div
                 className="home__content"
                 initial={{ opacity: 0, y: 20 }}
@@ -164,5 +165,6 @@ const Home: React.FC = () => {
         </div>
     );
 };
+
 
 export default Home; 

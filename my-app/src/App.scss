@@ -53,13 +53,6 @@ button {
     font-family: inherit;
 }
 
-// Dark mode support
-@media (prefers-color-scheme: dark) {
-    .app {
-        background-color: #1a1a1a;
-        color: #fff;
-    }
-}
 
 // Utility classes
 .container {
