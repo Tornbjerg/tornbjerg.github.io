@@ -8,7 +8,7 @@
     transition: all 0.3s ease;
     display: flex;
     flex-direction: column;
-    height: 100%;
+    height: 35vh;
     width: 35vw;
     border: none;
     box-shadow: none;
@@ -117,18 +117,18 @@
     z-index: 3;
     text-align: center;
 
+
+
     p {
         color: var(--background-primary);
         margin-bottom: 0;
         line-height: 2;
-        font-size: 0.95rem;
+        font-size: 0.7rem;
         font-weight: 450;
         text-align: justify;
         max-height: 120px;
-        text-overflow: ellipsis;
         display: -webkit-box;
-        -webkit-line-clamp: 6;
-        -webkit-box-orient: vertical;
+
     }
 }
 
@@ -185,39 +185,9 @@ a {
     }
 }
 
-// Responsive adjustments
-@media (max-width: var(--breakpoint-md)) {
+
+@media (max-width: 1024px) {
     .project-card {
-        width: 40vw;
-        min-width: 250px;
-
-        &__image {
-            height: 180px;
-            min-height: 180px;
-
-            h3 {
-                font-size: 1.1rem;
-                padding: var(--spacing-sm);
-                -webkit-text-stroke: 0.8px rgba(0, 0, 0, 0.5);
-            }
-        }
-    }
-}
-
-@media (max-width: var(--breakpoint-sm)) {
-    .project-card {
-        width: 80vw;
-        min-width: 280px;
-
-        &__image {
-            height: 160px;
-            min-height: 160px;
-
-            h3 {
-                font-size: 1rem;
-                padding: var(--spacing-xs);
-                -webkit-text-stroke: 0.6px rgba(0, 0, 0, 0.5);
-            }
-        }
+        width: 60vw;
     }
 }

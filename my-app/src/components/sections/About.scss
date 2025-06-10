@@ -4,7 +4,7 @@
     display: flex;
     flex-direction: row;
     margin-top: 10vh;
-    padding: 4rem 7rem;
+    padding: 1rem 7rem;
     min-height: 100vh;
     background: linear-gradient(135deg, var(--background-primary) 0%, rgba(180, 172, 151, 0.95) 100%);
     color: #222;
@@ -16,7 +16,7 @@
 
     &__main {
         flex: 1;
-        padding: 3rem 4rem;
+        padding: 1rem 4rem;
         display: flex;
         flex-direction: column;
         gap: 2.5rem;
@@ -30,12 +30,13 @@
         margin-bottom: 1.5rem;
 
         h1 {
-            font-size: 2.5rem;
+            font-size: 1.5rem;
             font-weight: 800;
             margin-bottom: 0.2em;
             background: linear-gradient(45deg, #2F2F2F, #4F4F4F);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            text-align: center;
         }
 
         h2 {
@@ -47,14 +48,12 @@
     }
 
     &__profile-text {
-        background: #fff;
-        border-radius: 16px;
-        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
         padding: 1.5rem 2rem;
-        margin-bottom: 1.5rem;
 
         h3 {
-            color: #1ced23;
+            background: linear-gradient(45deg, #2F2F2F, #4F4F4F);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             font-size: 1.1rem;
             margin-bottom: 0.7rem;
             font-weight: 700;
@@ -67,73 +66,43 @@
         }
     }
 
-    &__education,
-    &__experience {
-        background: #fff;
-        border-radius: 16px;
-        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
-        padding: 1.5rem 2rem;
-        margin-bottom: 1.5rem;
+    &__entry {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 2rem;
 
-        h3 {
-            color: #1ced23;
-            font-size: 1.1rem;
-            margin-bottom: 0.7rem;
-            font-weight: 700;
+        .about__entry__description {
+            width: 75%;
+            font-size: 0.8rem;
+            color: #333;
+            line-height: 1.7;
         }
-    }
 
-    &__edu-item,
-    &__exp-item {
-        margin-bottom: 1.5rem;
-
+        &:nth-child(even) {
+            align-items: flex-end;
+            text-align: right;
+        }
+    
         &:last-child {
             margin-bottom: 0;
         }
-
-        strong {
-            font-size: 1.08rem;
-            color: #222;
-        }
-
-        .about__edu-years,
-        .about__exp-years {
-            color: #888;
-            font-size: 0.98rem;
-            margin-left: 0.7em;
-            font-weight: 400;
-        }
-
-        em {
-            color: #1ced23;
-            font-size: 0.98rem;
-            font-style: normal;
-            margin-bottom: 0.3em;
-            display: inline-block;
-        }
-
-        ul {
-            margin: 0.5em 0 0 1.2em;
-            padding: 0;
-            list-style: disc;
-            color: #444;
-            font-size: 1rem;
-
-            li {
-                margin-bottom: 0.3em;
-            }
-        }
     }
 
-    &__edu-focus,
-    &__edu-projects {
-        font-size: 0.98rem;
-        color: #444;
-        margin: 0.5em 0 0.5em 0;
+    &__project {
+        margin-left: 1rem;
+        width: 50%;
 
-        strong {
-            color: #1ced23;
-            font-weight: 600;
+        h4 {
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 0.2rem;
+        }
+
+        p {
+            font-size: 0.7rem;
+            color: #333;
+            line-height: 1.7;
         }
     }
 }

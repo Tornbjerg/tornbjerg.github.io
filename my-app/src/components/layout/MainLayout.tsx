@@ -1,18 +1,15 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import Navigation from './Navigation';
-// import About from '../sections/About';
-import ProjectShowcase from '../projects/ProjectShowcase';
-// import Contact from '../sections/Contact';
 import './MainLayout.scss';
+import Navigation from './Navigation';
+import Projects from '../sections/Projects';
 import Home from '../sections/Home';
 import About from '../sections/About';
-import ResponsiveOverlay from '../responsiveIdentifyer/responsiveOverlay';
 
 const MainLayout: React.FC = () => {
     const sections = [
         { id: 'Home', component: <Home /> },
-        { id: 'projects', component: <ProjectShowcase /> },
+        { id: 'projects', component: <Projects /> },
         { id: 'about', component: <About /> },
         // { id: 'contact', component: <Contact /> }
     ];

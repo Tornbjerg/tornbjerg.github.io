@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './Home.scss';
-import imgCursor from '../../assets/images/Benjamin.png'; // Update path as needed
+import imgCursor from '../../assets/images/Benjamin.png';
 
 const Home: React.FC = () => {
     const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
