@@ -2,8 +2,7 @@
 
 .main-layout {
     min-height: 100vh;
-    background-color: var(--background-primary);
-    transition: background-color 0.3s ease, color 0.3s ease;
+    background: linear-gradient(to bottom, var(--background-primary), rgb(161, 154, 135));
 }
 
 
@@ -15,19 +14,6 @@
     justify-content: center;
     position: relative;
     overflow: hidden;
-
-    // Add subtle background patterns or gradients to sections
-    &:nth-child(odd) {
-        background: linear-gradient(135deg,
-                var(--background-primary) 0%,
-                rgba(180, 172, 151, 0.95) 100%);
-    }
-
-    &:nth-child(even) {
-        background: linear-gradient(135deg,
-                rgba(180, 172, 151, 0.95) 100%,
-                var(--background-primary) 0%);
-    }
 
     // Add decorative elements
     &::before {
@@ -43,43 +29,6 @@
                 transparent 100%);
     }
 
-    // Responsive adjustments
-    @media (max-width: 768px) {
-        padding: 3rem 1rem;
-    }
-
-    @media (max-width: 480px) {
-        padding: 2rem 1rem;
-    }
-}
-
-// Dark mode support
-@media (prefers-color-scheme: dark) {
-    .main-layout {
-        background-color: var(--background-secondary);
-        color: var(--text-secondary);
-    }
-
-    .section {
-        &:nth-child(odd) {
-            background: linear-gradient(135deg,
-                    rgba(26, 26, 26, 0.95) 0%,
-                    rgba(30, 30, 30, 0.95) 100%);
-        }
-
-        &:nth-child(even) {
-            background: linear-gradient(135deg,
-                    rgba(30, 30, 30, 0.95) 0%,
-                    rgba(26, 26, 26, 0.95) 100%);
-        }
-
-        &::before {
-            background: linear-gradient(90deg,
-                    transparent 0%,
-                    rgba(255, 255, 255, 0.1) 50%,
-                    transparent 100%);
-        }
-    }
 }
 
 // Smooth scrolling for the entire page
@@ -105,13 +54,3 @@ html {
     }
 }
 
-// Dark mode scrollbar
-@media (prefers-color-scheme: dark) {
-    ::-webkit-scrollbar-thumb {
-        background: #444;
-
-        &:hover {
-            background: #666;
-        }
-    }
-}

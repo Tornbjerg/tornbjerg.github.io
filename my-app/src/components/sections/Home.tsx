@@ -1,14 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './Home.scss';
 import imgCursor from '../../assets/images/Benjamin.png';
 
 const Home: React.FC = () => {
     const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
+    const [displayCursorPos, setDisplayCursorPos] = useState({ x: 0, y: 0 });
     const [showCursor, setShowCursor] = useState(false);
     const [currentTechIndex, setCurrentTechIndex] = useState(0);
     const [displayText, setDisplayText] = useState('');
     const [isDeleting, setIsDeleting] = useState(false);
+    const animationRef = useRef<number | undefined>(undefined);
 
     const technologies = ['Python', 'SQL', 'Word2Vec', 'Numpy', 'Matplotlib', 'Seaborn', 'OSM', 'Embeddings', 'Geospatial Data', 'Natural Language Processing', 'React', 'TypeScript', 'SCSS', 'Deployment', 'CI/CD Pipeline', 'Docker', 'Design', 'Gamification', 'F#', 'Async', 'GADDAG', 'Recursion', 'Functional Programming', 'Python', 'TensorFlow', 'Deep Q-Network', 'Reinforcement Learning', 'Neural Networks', 'DDQN', 'Gymnasium', 'Python', 'SQL', 'FTP', 'Google Cloud', 'Docker', 'Data Warehouse', 'Data Visualisation', 'Automation', 'ETL'];
 
@@ -38,6 +40,37 @@ const Home: React.FC = () => {
         return () => clearTimeout(timeout);
     }, [displayText, currentTechIndex, isDeleting, technologies]);
 
+    // Smooth cursor animation
+    useEffect(() => {
+        if (showCursor) {
+            const animateCursor = () => {
+                setDisplayCursorPos(prev => {
+                    const dx = cursorPos.x - prev.x;
+                    const dy = cursorPos.y - prev.y;
+                    const lag = 8; // Adjust this value for smoothness (0.1 = very smooth, 0.3 = less smooth)
+
+                    return {
+                        x: prev.x + dx / lag,
+                        y: prev.y + dy / lag
+                    };
+                });
+
+                animationRef.current = requestAnimationFrame(animateCursor);
+            };
+
+            animationRef.current = requestAnimationFrame(animateCursor);
+        } else {
+            // Reset cursor position when not showing
+            setDisplayCursorPos(cursorPos);
+        }
+
+        return () => {
+            if (animationRef.current) {
+                cancelAnimationFrame(animationRef.current);
+            }
+        };
+    }, [cursorPos, showCursor]);
+
     const handleMouseMove = (e: React.MouseEvent) => {
         setCursorPos({ x: e.clientX, y: e.clientY });
     };
@@ -51,7 +84,6 @@ const Home: React.FC = () => {
 
     return (
         <div className="home">
-
             <motion.div
                 className="home__content"
                 initial={{ opacity: 0, y: 20 }}
@@ -157,14 +189,13 @@ const Home: React.FC = () => {
                     alt="Custom Cursor"
                     className="custom-cursor"
                     style={{
-                        left: cursorPos.x,
-                        top: cursorPos.y,
+                        left: displayCursorPos.x,
+                        top: displayCursorPos.y,
                     }}
                 />
             )}
         </div>
     );
 };
-
 
 export default Home; 

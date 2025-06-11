@@ -8,9 +8,10 @@
     align-items: center;
     position: relative;
     text-align: center;
-    background: linear-gradient(135deg,
-            var(--background-primary) 0%,
-            rgba(180, 172, 151, 0.95) 100%);
+    // background: linear-gradient(135deg,
+    //         var(--background-primary) 0%,
+    //         rgba(180, 172, 151, 0.95) 100%);
+    background: transparent;
 
     &__content {
         max-width: 800px;
