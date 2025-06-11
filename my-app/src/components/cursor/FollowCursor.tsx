@@ -9,10 +9,9 @@ import React, { useEffect } from 'react';
 interface FollowCursorProps {
     color?: string;
     zIndex?: number;
-    img?: string;
 }
 
-const FollowCursor: React.FC<FollowCursorProps> = ({ color = '#ffffff', zIndex = 3000, img }) => {
+const FollowCursor: React.FC<FollowCursorProps> = ({ color = '#ffffff', zIndex = 3000 }) => {
     useEffect(() => {
         let canvas: HTMLCanvasElement;
         let context: CanvasRenderingContext2D | null;
@@ -20,6 +19,8 @@ const FollowCursor: React.FC<FollowCursorProps> = ({ color = '#ffffff', zIndex =
         let width = window.innerWidth;
         let height = window.innerHeight;
         let cursor = { x: width / 2, y: height / 2 };
+        let isHovering = false;
+        let hoverType = '';
         const prefersReducedMotion = window.matchMedia(
             '(prefers-reduced-motion: reduce)'
         );
@@ -39,7 +40,21 @@ const FollowCursor: React.FC<FollowCursorProps> = ({ color = '#ffffff', zIndex =
             moveTowards(x: number, y: number, context: CanvasRenderingContext2D) {
                 this.position.x += (x - this.position.x) / this.lag;
                 this.position.y += (y - this.position.y) / this.lag;
-                context.fillStyle = color;
+
+                // Determine color and size based on hover state
+                let currentColor = color;
+
+                if (isHovering) {
+                    switch (hoverType) {
+                        case 'link':
+                            currentColor = '#1ced23';
+                            break;
+                        default:
+                            currentColor = color;
+                    }
+                }
+
+                context.fillStyle = currentColor;
                 context.beginPath();
                 context.arc(
                     this.position.x,
@@ -56,9 +71,36 @@ const FollowCursor: React.FC<FollowCursorProps> = ({ color = '#ffffff', zIndex =
         // The cursor itself
         const dot = new Dot(width / 2, height / 2, 10, 8);
 
+        const detectHoverElement = (x: number, y: number) => {
+            const element = document.elementFromPoint(x, y);
+            if (!element) {
+                isHovering = false;
+                hoverType = '';
+                return;
+            }
+
+            const tagName = element.tagName.toLowerCase();
+            const className = element.className || '';
+            const role = element.getAttribute('role') || '';
+
+            // Check for links
+            if (tagName === 'a' || element.closest('a') || tagName === 'button' || role === 'button' ||
+                className.includes('btn') || className.includes('button') ||
+                element.closest('button')) {
+                isHovering = true;
+                hoverType = 'link';
+                return;
+            }
+
+            // No hover effect
+            isHovering = false;
+            hoverType = '';
+        };
+
         const onMouseMove = (e: MouseEvent) => {
             cursor.x = e.clientX;
             cursor.y = e.clientY;
+            detectHoverElement(e.clientX, e.clientY);
         };
 
         const onWindowResize = () => {

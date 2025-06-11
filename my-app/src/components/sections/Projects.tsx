@@ -10,6 +10,7 @@ import MMWImage from '../../assets/images/MMW_Logo.jpg';
 import MovieHouseImage from '../../assets/images/MovieHouse_Logo.jpg';
 import LunarLanderImage from '../../assets/images/LunarLander.png';
 import WebPageImage from '../../assets/images/WebPage.png';
+import Stars from '../features/stars';
 
 interface Project {
     id: string;
@@ -141,7 +142,9 @@ const ProjectShowcase: React.FC = () => {
                     ))}
                 </AnimatePresence>
             </motion.div>
+
         </motion.section>
+        
     );
 };
 

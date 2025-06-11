@@ -15,6 +15,11 @@
     position: relative;
     overflow: hidden;
 
+    &:last-child {
+        min-height: 0;
+        background: transparent;
+    }
+
     // Add decorative elements
     &::before {
         content: '';

@@ -16,6 +16,7 @@ interface Star {
     left: number;
     opacity: number;
     size: number;
+    randomColor: number;
 }
 
 export default function Stars({ count }: StarsProps) {
@@ -25,10 +26,11 @@ export default function Stars({ count }: StarsProps) {
         // Create stars with random positions and properties
         const newStars: Star[] = Array.from({ length: count }, (_, index) => ({
             id: index,
-            top: Math.random() * 98, // Keep within 98% to avoid edge clipping
+            top: Math.random() * 98,
             left: Math.random() * 100,
             opacity: Math.random() * 0.8 + 0.2, // Between 0.2 and 1.0
-            size: Math.random() * 6 + 1 // Between 1 and 4px
+            size: Math.random() * 6 + 1, // Between 1 and 4px
+            randomColor: Math.random() * 100
         }));
 
         setStars(newStars);
@@ -71,7 +73,8 @@ export default function Stars({ count }: StarsProps) {
                         left: `${star.left}%`,
                         opacity: star.opacity,
                         width: `${star.size}px`,
-                        height: `${star.size}px`
+                        height: `${star.size}px`,
+                        backgroundColor: star.randomColor > 50 ? '#1ced23bb' : 'transparent'
                     }}
                 />
             ))}

@@ -41,15 +41,15 @@ const cv: cvEntry[] = [
         ], startDate: '2024', endDate: 'Now', meta: '💼 ☁️'
     },
     { title: 'Fullstack developer / Generalist', type: 'Experience', subTitle: 'My Mental Wellbeing ・ Full Time', description: 'Design and development of a web-based-platform for mental wellbeing. The platform is a gamified solution for tracking and improving mental wellbeing. I also engaged in customer relations and stakeholder events as a part of the team.', startDate: 'Jan 2025', endDate: 'Apr 2025', meta: '🧠 ❤️' },
-    { title: 'ITU Ambassador', type: 'Experience', subTitle: 'Part-time', description: 'Presentations at ITU events and fairs. Contact person for ITU-interested as well as hosting and helping (primarily) youth activities centred around getting more people interested in IT.', startDate: '2021', endDate: '2023', meta: '🗣️ 💻' },
-    { title: 'Bartender', type: 'Experience', subTitle: 'Part-time', description: 'Bartender and mixer focused on creating a great atmosphere among both colleagues and guests.', startDate: '2021', endDate: '2022', meta: '🍹 🍻' },
+    { title: 'ITU Ambassador', type: 'Experience', subTitle: 'IT University of Copenhagen ・ Part-time', description: 'Presentations at ITU events and fairs. Contact person for ITU-interested as well as hosting and helping (primarily) youth activities centred around getting more people interested in IT.', startDate: '2021', endDate: '2023', meta: '🗣️ 💻' },
+    { title: 'Bartender', type: 'Experience', subTitle: 'Åbenbar ・ Part-time', description: 'Bartender and mixer focused on creating a great atmosphere among both colleagues and guests.', startDate: '2021', endDate: '2022', meta: '🍹 🍻' },
 ]
 
 
 const About: React.FC = () => {
     return (
         <div className="about" id="starryBackground">
-            <Stars count={100} />
+            <Stars count={50} />
             <motion.div
                 className="about__main"
                 initial={{ opacity: 0, y: 20 }}
@@ -102,11 +102,6 @@ const About: React.FC = () => {
                                     {!entry.projects && <div className="about__project"><p>{entry.technologies?.join('・ ')}</p></div>}
                                 </div>
                             ))}
-                        </div>
-                    </section>
-                    <section className="about__profile-text">
-                        <div className="about__sub_header">
-                            <h2>Current Projects</h2>
                         </div>
                     </section>
                 </section>

@@ -5,13 +5,14 @@ import Navigation from './Navigation';
 import Projects from '../sections/Projects';
 import Home from '../sections/Home';
 import About from '../sections/About';
+import Contact from '../sections/Contact';
 
 const MainLayout: React.FC = () => {
     const sections = [
         { id: 'Home', component: <Home /> },
         { id: 'projects', component: <Projects /> },
         { id: 'about', component: <About /> },
-        // { id: 'contact', component: <Contact /> }
+        { id: 'contact', component: <Contact /> }
     ];
 
     return (
@@ -24,19 +25,50 @@ const MainLayout: React.FC = () => {
             <Navigation sections={sections.map(s => s.id)} />
 
             <main className="main-content">
-                {sections.map(({ id, component }) => (
-                    <motion.section
-                        key={id}
-                        id={id}
-                        className="section"
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, margin: "-100px" }}
-                        transition={{ duration: 0.6 }}
-                    >
-                        {component}
-                    </motion.section>
-                ))}
+                {/* Home */}
+                <motion.section
+                    id="Home"
+                    className="section"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ duration: 0.6 }}
+                > {sections[0].component}</motion.section>
+                
+                
+                {/* Projects */}
+                <motion.section
+                 id="projects"
+                 className="section"
+                 initial={{ opacity: 0, y: 20 }}
+                 whileInView={{ opacity: 1, y: 0 }}
+                 viewport={{ once: true, margin: "-100px" }}
+                 transition={{ duration: 0.6 }}> 
+                    {sections[1].component}
+                </motion.section>
+
+                {/* About */}
+                <motion.section
+                 id="about"
+                 className="section"
+                 initial={{ opacity: 0, y: 20 }}
+                 whileInView={{ opacity: 1, y: 0 }}
+                 viewport={{ once: true, margin: "-100px" }}
+                 transition={{ duration: 0.6 }}> 
+                    {sections[2].component}
+                </motion.section>
+
+                {/* Contact */}
+                <motion.section
+                 id="contact"
+                 className="section"
+                 initial={{ opacity: 0, y: 20 }}
+                 whileInView={{ opacity: 1, y: 0 }}
+                 viewport={{ once: true, margin: "-100px" }}
+                 transition={{ duration: 0.6 }}> 
+                    {sections[3].component}
+                </motion.section>
+
             </main>
         </motion.div>
     );
