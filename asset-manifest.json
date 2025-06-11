@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.7e04c69f.css",
-    "main.js": "/static/js/main.3b9cd575.js",
+    "main.css": "/static/css/main.1b4a131d.css",
+    "main.js": "/static/js/main.882ad8fe.js",
     "static/js/453.ed3810f9.chunk.js": "/static/js/453.ed3810f9.chunk.js",
     "static/media/Benjamin.png": "/static/media/Benjamin.073c491fab1a5f856d50.png",
     "static/media/Word2Vec.png": "/static/media/Word2Vec.027b4c0c67a8353ecf45.png",
@@ -10,12 +10,12 @@
     "static/media/ScrabbleBot.png": "/static/media/ScrabbleBot.e83540a45af1d9cc467a.png",
     "static/media/MovieHouse_Logo.jpg": "/static/media/MovieHouse_Logo.9b0560f4cfbda2d75dcb.jpg",
     "index.html": "/index.html",
-    "main.7e04c69f.css.map": "/static/css/main.7e04c69f.css.map",
-    "main.3b9cd575.js.map": "/static/js/main.3b9cd575.js.map",
+    "main.1b4a131d.css.map": "/static/css/main.1b4a131d.css.map",
+    "main.882ad8fe.js.map": "/static/js/main.882ad8fe.js.map",
     "453.ed3810f9.chunk.js.map": "/static/js/453.ed3810f9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.7e04c69f.css",
-    "static/js/main.3b9cd575.js"
+    "static/css/main.1b4a131d.css",
+    "static/js/main.882ad8fe.js"
   ]
 }
