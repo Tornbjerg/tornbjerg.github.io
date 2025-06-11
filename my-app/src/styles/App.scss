@@ -37,15 +37,3 @@ body {
     padding: 0 var(--spacing-xl);
 }
 
-// Responsive breakpoints
-@media (max-width: var(--breakpoint-lg)) {
-    .main-content {
-        padding: var(--spacing-lg);
-    }
-}
-
-@media (max-width: var(--breakpoint-md)) {
-    .main-content {
-        padding: var(--spacing-md);
-    }
-}

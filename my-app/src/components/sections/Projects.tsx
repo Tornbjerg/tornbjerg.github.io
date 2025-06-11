@@ -1,16 +1,17 @@
-import React, { useState, useMemo } from 'react';
+import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import './ProjectShowcase.scss';
+import './Projects.scss';
 import ProjectCardComponent from '../projectCard/ProjectCardComponent';
 
-// Import images
 import word2VecImage from '../../assets/images/Word2Vec.png';
 import scrabbleBotImage from '../../assets/images/ScrabbleBot.png';
 import MMWImage from '../../assets/images/MMW_Logo.jpg';
 import MovieHouseImage from '../../assets/images/MovieHouse_Logo.jpg';
 import LunarLanderImage from '../../assets/images/LunarLander.png';
 import WebPageImage from '../../assets/images/WebPage.png';
+import Stars from '../features/stars';
+
 interface Project {
     id: string;
     title: string;
@@ -32,7 +33,7 @@ const ProjectShowcase: React.FC = () => {
         {
             id: '1',
             title: 'Analysing the Copenhagen infrastructure with Word2Vec',
-            description: 'Bachelor project at IT University of Copenhagen, researching the use of Word2Vec to capture the geographical features in the infrastructure of Copenhagen. Embedding stations based on their travelers commuting behaviour.',
+            description: 'Bachelor project at IT University of Copenhagen, researching the use of Word2Vec to capture the geographical features in the infrastructure of Copenhagen. Embedding stations based on their travelers\' commuting behaviour.',
             technologies: ['Python', 'SQL', 'Word2Vec', 'Numpy', 'Matplotlib', 'Seaborn', 'OSM', 'Embeddings', 'Geospatial Data', 'Natural Language Processing'],
             githubUrl: 'https://github.com/Tornbjerg/Word2Vec-Copenhagen',
             collaborators: ['Monica Hardt'],
@@ -68,7 +69,7 @@ const ProjectShowcase: React.FC = () => {
         {
             id: '5',
             title: 'Movie House',
-            description: 'IT-consulting centred around datamanagement, data-driven decision making and data visualisation. Centred around the centralisation of data from multiple sources into a single data warehouse, using the Google Cloud Platform for automation and data visualisation.',
+            description: 'IT-consulting centred around datamanagement, data-driven decision making and data visualisation. Centred around the centralisation of data from multiple sources into a single data warehouse, using the Google Cloud Platform for automation and data visualisation. Solution consisted of custom ETL Python scripts containerised in Docker running through Google Jobs, Google DataWarehouse management and data visualisation using Looker Studio.',
             technologies: ['Python', 'SQL', 'FTP', 'Google Cloud', 'Docker', 'Data Warehouse', 'Data Visualisation', 'Automation', 'ETL'],
             githubUrl: 'Not Available',
             collaborators: [],
@@ -141,7 +142,9 @@ const ProjectShowcase: React.FC = () => {
                     ))}
                 </AnimatePresence>
             </motion.div>
+
         </motion.section>
+        
     );
 };
 
