@@ -6,12 +6,14 @@
     justify-content: center;
     width: 100%;
     height: 100%;
-    z-index: 10000;
+    z-index: 1;
     right: 20px;
+    pointer-events: none;
 
     .btn {
         cursor: pointer;
         transition: transform 0.2s ease;
+        pointer-events: auto;
 
         &:hover {
             transform: scale(1.1);
@@ -35,9 +37,10 @@
         backdrop-filter: blur(10px);
         border: 1px solid rgba(255, 255, 255, 0.1);
         animation: tooltipFadeIn 0.3s ease-out;
-        z-index: 9999;
+        z-index: 2;
         white-space: normal;
         word-wrap: break-word;
+        pointer-events: auto;
 
         span {
             color: #1ced23;

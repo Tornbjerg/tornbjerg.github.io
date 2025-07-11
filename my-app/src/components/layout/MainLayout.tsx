@@ -40,38 +40,38 @@ const MainLayout: React.FC = () => {
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{ duration: 0.6 }}
                 > {sections[0].component}</motion.section>
-                
-                
+
+
                 {/* Projects */}
                 <motion.section
-                 id="projects"
-                 className="section"
-                 initial={{ opacity: 0, y: 20 }}
-                 whileInView={{ opacity: 1, y: 0 }}
-                 viewport={{ once: true, margin: "-100px" }}
-                 transition={{ duration: 0.6 }}> 
+                    id="projects"
+                    className="section"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ duration: 0.6 }}>
                     {sections[1].component}
                 </motion.section>
 
                 {/* About */}
                 <motion.section
-                 id="about"
-                 className="section"
-                 initial={{ opacity: 0, y: 20 }}
-                 whileInView={{ opacity: 1, y: 0 }}
-                 viewport={{ once: true, margin: "-100px" }}
-                 transition={{ duration: 0.6 }}> 
+                    id="about"
+                    className="section"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ duration: 0.6 }}>
                     {sections[2].component}
                 </motion.section>
 
                 {/* Contact */}
                 <motion.section
-                 id="contact"
-                 className="section"
-                 initial={{ opacity: 0, y: 20 }}
-                 whileInView={{ opacity: 1, y: 0 }}
-                 viewport={{ once: true, margin: "-100px" }}
-                 transition={{ duration: 0.6 }}> 
+                    id="contact"
+                    className="section"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ duration: 0.6 }}>
                     {sections[3].component}
                     <Questionmark />
                 </motion.section>

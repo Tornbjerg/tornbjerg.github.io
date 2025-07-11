@@ -1,5 +1,8 @@
 # To do :
 
-- Add '?' icon with links to inspiration and libraries used
-- Update favicon
+- [x] Add '?' icon with links to inspiration and libraries used
+- [x] Update favicon
+- [ ] Remove scrollbar
+
+
 
