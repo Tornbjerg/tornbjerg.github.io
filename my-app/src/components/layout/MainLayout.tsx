@@ -6,6 +6,12 @@ import Projects from '../sections/Projects';
 import Home from '../sections/Home';
 import About from '../sections/About';
 import Contact from '../sections/Contact';
+import QuestionMark from '../../assets/images/Question-mark.svg';
+import Questionmark from '../features/Questionmark';
+
+
+
+
 
 const MainLayout: React.FC = () => {
     const sections = [
@@ -67,6 +73,7 @@ const MainLayout: React.FC = () => {
                  viewport={{ once: true, margin: "-100px" }}
                  transition={{ duration: 0.6 }}> 
                     {sections[3].component}
+                    <Questionmark />
                 </motion.section>
 
             </main>

@@ -13,7 +13,6 @@
     flex-direction: column;
     justify-content: center;
     position: relative;
-    overflow: hidden;
 
     &:last-child {
         min-height: 0;
@@ -58,4 +57,3 @@ html {
         background: #999;
     }
 }
-
