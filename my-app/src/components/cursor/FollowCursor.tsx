@@ -21,9 +21,25 @@ const FollowCursor: React.FC<FollowCursorProps> = ({ color = '#ffffff', zIndex =
         let cursor = { x: width / 2, y: height / 2 };
         let isHovering = false;
         let hoverType = '';
+        let isMobile = false;
+        let fadeoutTimeout: NodeJS.Timeout | null = null;
+        let currentOpacity = 1;
+        let isVisible = true;
+
         const prefersReducedMotion = window.matchMedia(
             '(prefers-reduced-motion: reduce)'
         );
+
+        // Detect if device is mobile
+        const detectMobile = () => {
+            const userAgent = navigator.userAgent.toLowerCase();
+            const isMobileDevice = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(userAgent);
+            const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+            const isSmallScreen = window.innerWidth <= 768;
+
+            const isMobile = isMobileDevice || isTouchDevice || isSmallScreen;
+            return isMobile;
+        };
 
         // The visual representation of the cursor
         class Dot {
@@ -54,6 +70,13 @@ const FollowCursor: React.FC<FollowCursorProps> = ({ color = '#ffffff', zIndex =
                     }
                 }
 
+                // Apply fadeout effect for mobile
+                if (isMobile && !isVisible) {
+                    context.globalAlpha = currentOpacity;
+                } else {
+                    context.globalAlpha = 1;
+                }
+
                 context.fillStyle = currentColor;
                 context.beginPath();
                 context.arc(
@@ -70,6 +93,45 @@ const FollowCursor: React.FC<FollowCursorProps> = ({ color = '#ffffff', zIndex =
 
         // The cursor itself
         const dot = new Dot(width / 2, height / 2, 10, 8);
+
+        // Fadeout effect for mobile
+        const startFadeout = () => {
+            if (!isMobile) return;
+            if (fadeoutTimeout) {
+                clearTimeout(fadeoutTimeout);
+            }
+
+            fadeoutTimeout = setTimeout(() => {
+                isVisible = false;
+                currentOpacity = 1;
+
+                const fadeOut = () => {
+                    if (currentOpacity > 0) {
+                        currentOpacity -= 0.05;
+                        requestAnimationFrame(fadeOut);
+                    } else {
+                        currentOpacity = 0;
+                    }
+                };
+
+                fadeOut();
+            }, 2000);
+        };
+
+        // Reset visibility and opacity
+        const resetVisibility = () => {
+            isVisible = true;
+            currentOpacity = 1;
+            if (fadeoutTimeout) {
+                clearTimeout(fadeoutTimeout);
+                fadeoutTimeout = null;
+            }
+
+            // Start the fadeout timer after resetting
+            if (isMobile) {
+                startFadeout();
+            }
+        };
 
         const detectHoverElement = (x: number, y: number) => {
             const element = document.elementFromPoint(x, y);
@@ -101,6 +163,40 @@ const FollowCursor: React.FC<FollowCursorProps> = ({ color = '#ffffff', zIndex =
             cursor.x = e.clientX;
             cursor.y = e.clientY;
             detectHoverElement(e.clientX, e.clientY);
+
+            // Reset visibility on mouse move for mobile
+            if (isMobile) {
+                resetVisibility();
+            }
+        };
+
+        const onTouchStart = (e: TouchEvent) => {
+            if (e.touches.length > 0) {
+                const touch = e.touches[0];
+                cursor.x = touch.clientX;
+                cursor.y = touch.clientY;
+                detectHoverElement(touch.clientX, touch.clientY);
+
+                // Reset visibility on touch
+                resetVisibility();
+            }
+        };
+
+        const onTouchMove = (e: TouchEvent) => {
+            if (e.touches.length > 0) {
+                const touch = e.touches[0];
+                cursor.x = touch.clientX;
+                cursor.y = touch.clientY;
+                detectHoverElement(touch.clientX, touch.clientY);
+
+                // Reset visibility on touch move
+                resetVisibility();
+            }
+        };
+
+        const onTouchEnd = () => {
+            // Touch ended, but we don't need to do anything special here
+            // The fadeout timer is managed by resetVisibility() which gets called on touchstart/touchmove
         };
 
         const onWindowResize = () => {
@@ -110,6 +206,9 @@ const FollowCursor: React.FC<FollowCursorProps> = ({ color = '#ffffff', zIndex =
                 canvas.width = width;
                 canvas.height = height;
             }
+
+            // Re-detect mobile on resize
+            isMobile = detectMobile();
         };
 
         const updateDot = () => {
@@ -130,6 +229,9 @@ const FollowCursor: React.FC<FollowCursorProps> = ({ color = '#ffffff', zIndex =
                 return;
             }
 
+            // Detect mobile device
+            isMobile = detectMobile();
+
             canvas = document.createElement('canvas');
             context = canvas.getContext('2d');
             canvas.style.position = 'fixed';
@@ -142,14 +244,21 @@ const FollowCursor: React.FC<FollowCursorProps> = ({ color = '#ffffff', zIndex =
             document.body.appendChild(canvas);
 
             window.addEventListener('mousemove', onMouseMove);
+            window.addEventListener('touchstart', onTouchStart);
+            window.addEventListener('touchmove', onTouchMove);
+            window.addEventListener('touchend', onTouchEnd);
             window.addEventListener('resize', onWindowResize);
             loop();
         };
 
         const destroy = () => {
             if (canvas) canvas.remove();
+            if (fadeoutTimeout) clearTimeout(fadeoutTimeout);
             cancelAnimationFrame(animationFrame);
             window.removeEventListener('mousemove', onMouseMove);
+            window.removeEventListener('touchstart', onTouchStart);
+            window.removeEventListener('touchmove', onTouchMove);
+            window.removeEventListener('touchend', onTouchEnd);
             window.removeEventListener('resize', onWindowResize);
         };
 

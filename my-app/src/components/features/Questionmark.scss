@@ -9,11 +9,22 @@
     z-index: 1;
     right: 20px;
     pointer-events: none;
+    max-width: 100vw;
+    box-sizing: border-box;
+
+    @media (max-width: 768px) {
+        right: 10px;
+    }
+
+    @media (max-width: 480px) {
+        right: 5px;
+    }
 
     .btn {
         cursor: pointer;
         transition: transform 0.2s ease;
         pointer-events: auto;
+        max-width: 100%;
 
         &:hover {
             transform: scale(1.1);
@@ -41,6 +52,21 @@
         white-space: normal;
         word-wrap: break-word;
         pointer-events: auto;
+        box-sizing: border-box;
+
+        @media (max-width: 768px) {
+            max-width: 200px;
+            right: -10px;
+            font-size: 12px;
+            padding: 10px 12px;
+        }
+
+        @media (max-width: 480px) {
+            max-width: 180px;
+            right: -20px;
+            font-size: 11px;
+            padding: 8px 10px;
+        }
 
         span {
             color: #1ced23;

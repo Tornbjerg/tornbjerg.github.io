@@ -2,7 +2,12 @@
 
 - [x] Add '?' icon with links to inspiration and libraries used
 - [x] Update favicon
-- [ ] Remove scrollbar
+- [x] Remove scrollbar
+- [x] Fix overflow in sections
+- [partly] Responsiveness for mobile access
+- [ ] Fit content to smaller viewports
+- [x] Update cursor effect on mobile devices
+
 
 
 

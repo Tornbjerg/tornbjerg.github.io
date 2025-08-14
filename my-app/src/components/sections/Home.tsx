@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import './Home.scss';
 import imgCursor from '../../assets/images/Benjamin.png';
+import { technologiesList } from '../../helpers/utils';
 
 const Home: React.FC = () => {
     const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
@@ -11,9 +12,9 @@ const Home: React.FC = () => {
     const [displayText, setDisplayText] = useState('');
     const [isDeleting, setIsDeleting] = useState(false);
     const animationRef = useRef<number | undefined>(undefined);
+    const technologies = technologiesList;  
 
-    const technologies = ['Python', 'SQL', 'Word2Vec', 'Numpy', 'Matplotlib', 'Seaborn', 'OSM', 'Embeddings', 'Geospatial Data', 'Natural Language Processing', 'React', 'TypeScript', 'SCSS', 'Deployment', 'CI/CD Pipeline', 'Docker', 'Design', 'Gamification', 'F#', 'Async', 'GADDAG', 'Recursion', 'Functional Programming', 'Python', 'TensorFlow', 'Deep Q-Network', 'Reinforcement Learning', 'Neural Networks', 'DDQN', 'Gymnasium', 'Python', 'SQL', 'FTP', 'Google Cloud', 'Docker', 'Data Warehouse', 'Data Visualisation', 'Automation', 'ETL'];
-
+    // Typing effect for the technologies
     useEffect(() => {
         const currentTech = technologies[currentTechIndex];
         const typingSpeed = 100; // Speed for typing
@@ -40,7 +41,7 @@ const Home: React.FC = () => {
         return () => clearTimeout(timeout);
     }, [displayText, currentTechIndex, isDeleting, technologies]);
 
-    // Smooth cursor animation
+    // Smooth cursor animation for when hovering the name
     useEffect(() => {
         if (showCursor) {
             const animateCursor = () => {
@@ -96,7 +97,7 @@ const Home: React.FC = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.2 }}
                 >
-                    Hello! I am <span className="name"
+                    Hello! I'm <span className="name"
                         onMouseEnter={() => setShowCursor(true)}
                         onMouseLeave={() => setShowCursor(false)}
                         onMouseMove={handleMouseMove}>

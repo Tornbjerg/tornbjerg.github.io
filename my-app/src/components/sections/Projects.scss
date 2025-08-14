@@ -4,6 +4,11 @@
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
+    width: 100%;
+    height: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+    box-sizing: border-box;
 
     .project-showcase__title {
         font-size: 2rem;
@@ -13,6 +18,11 @@
         background: linear-gradient(45deg, #2F2F2F, #4F4F4F);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
+        text-align: center;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        max-width: 100%;
+        padding: 0 1rem;
     }
 
     //Card containers
@@ -22,6 +32,16 @@
         align-items: center;
         justify-content: space-evenly;
         flex-wrap: wrap;
-        padding: 0 5rem;
+        padding: 0 3rem;
+        width: 100%;
+        max-width: 100vw;
+        overflow-y: hidden;
+        box-sizing: border-box;
+
+        @media (max-width: 768px) {
+            padding: 0 1rem;
+            justify-content: center;
+            gap: 1rem;
+        }
     }
 }
