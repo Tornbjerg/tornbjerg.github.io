@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/static/css/main.e2edab9c.css",
-    "main.js": "/static/js/main.5485727e.js",
+    "main.css": "/static/css/main.96394298.css",
+    "main.js": "/static/js/main.212bc149.js",
     "static/js/453.ed3810f9.chunk.js": "/static/js/453.ed3810f9.chunk.js",
     "static/media/Benjamin.png": "/static/media/Benjamin.073c491fab1a5f856d50.png",
     "static/media/Word2Vec.png": "/static/media/Word2Vec.027b4c0c67a8353ecf45.png",
-    "static/media/WebPage.png": "/static/media/WebPage.4acd83db91da032a12a1.png",
     "static/media/MMW_Logo.jpg": "/static/media/MMW_Logo.a4ca20e15973850dadd9.jpg",
     "static/media/ScrabbleBot.png": "/static/media/ScrabbleBot.e83540a45af1d9cc467a.png",
+    "static/media/WebPage.png": "/static/media/WebPage.eb20fb75c3fef92e15fe.png",
     "static/media/MovieHouse_Logo.jpg": "/static/media/MovieHouse_Logo.9b0560f4cfbda2d75dcb.jpg",
     "static/media/Question-mark.svg": "/static/media/Question-mark.c2841925164121172359f6b46923e38d.svg",
     "index.html": "/index.html",
-    "main.e2edab9c.css.map": "/static/css/main.e2edab9c.css.map",
-    "main.5485727e.js.map": "/static/js/main.5485727e.js.map",
+    "main.96394298.css.map": "/static/css/main.96394298.css.map",
+    "main.212bc149.js.map": "/static/js/main.212bc149.js.map",
     "453.ed3810f9.chunk.js.map": "/static/js/453.ed3810f9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e2edab9c.css",
-    "static/js/main.5485727e.js"
+    "static/css/main.96394298.css",
+    "static/js/main.212bc149.js"
   ]
 }
