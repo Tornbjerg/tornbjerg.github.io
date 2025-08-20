@@ -6,14 +6,28 @@
     justify-content: center;
     width: 100%;
     height: 100%;
-    z-index: 1;
+    z-index: 9999; // Very high z-index to ensure it's above everything
     right: 20px;
     pointer-events: none;
+    max-width: 100vw;
+    box-sizing: border-box;
+
+    @media (max-width: 768px) {
+        right: 10px;
+    }
+
+    @media (max-width: 480px) {
+        right: 0px;
+        flex-direction: row;
+
+    }
 
     .btn {
         cursor: pointer;
         transition: transform 0.2s ease;
         pointer-events: auto;
+        max-width: 100%;
+        position: relative; // Add relative positioning for tooltip reference
 
         &:hover {
             transform: scale(1.1);
@@ -37,10 +51,26 @@
         backdrop-filter: blur(10px);
         border: 1px solid rgba(255, 255, 255, 0.1);
         animation: tooltipFadeIn 0.3s ease-out;
-        z-index: 2;
+        z-index: 10000; // Highest z-index to ensure it's above everything
         white-space: normal;
         word-wrap: break-word;
         pointer-events: auto;
+        box-sizing: border-box;
+
+        @media (max-width: 768px) {
+            max-width: 200px;
+            right: -10px;
+            font-size: 12px;
+            padding: 10px 12px;
+        }
+
+        @media (max-width: 480px) {
+            max-width: 180px;
+            right: 100px;
+            top: 100px;
+            font-size: 11px;
+            padding: 8px 10px;
+        }
 
         span {
             color: #1ced23;

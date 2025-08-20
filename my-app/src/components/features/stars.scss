@@ -7,6 +7,8 @@
     pointer-events: none;
     z-index: 1;
     overflow: hidden;
+    max-width: 100vw;
+    box-sizing: border-box;
 }
 
 .star {
@@ -14,4 +16,6 @@
     border-radius: 50%;
     background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.4) 50%, transparent 100%);
     box-shadow: 0 0 4px rgba(255, 255, 255, 0.6);
+    max-width: 100vw;
+    max-height: 100vh;
 }

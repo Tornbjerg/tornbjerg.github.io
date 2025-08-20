@@ -3,20 +3,32 @@
 .main-layout {
     min-height: 100vh;
     background: linear-gradient(to bottom, var(--background-primary), rgb(161, 154, 135));
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    position: relative;
+    box-sizing: border-box;
+    z-index: 1; // Establish stacking context
 }
 
-
 .section {
-    min-height: 100vh;
+    // min-height: 100vh;
     padding: 2rem 2rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     position: relative;
+    width: 100%;
+    max-width: 100vw;
+    box-sizing: border-box;
+    overflow-y: visible; // Changed from hidden to visible to allow tooltips to extend
+    z-index: 1; // Establish stacking context
 
     &:last-child {
         min-height: 0;
         background: transparent;
+        overflow: visible; // Ensure last section allows tooltips to extend
     }
 
     // Add decorative elements
@@ -33,27 +45,15 @@
                 transparent 100%);
     }
 
+    @media (max-width: 768px) {
+        padding: 1rem 1rem;
+        width: 100%;
+        max-width: 100vw;
+        overflow-x: hidden;
+    }
 }
 
 // Smooth scrolling for the entire page
 html {
     scroll-behavior: smooth;
-}
-
-// Custom scrollbar
-::-webkit-scrollbar {
-    width: 8px;
-}
-
-::-webkit-scrollbar-track {
-    background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-    background: #ccc;
-    border-radius: 4px;
-
-    &:hover {
-        background: #999;
-    }
 }
