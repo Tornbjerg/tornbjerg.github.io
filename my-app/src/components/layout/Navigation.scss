@@ -132,11 +132,14 @@
     top: 0;
     left: 0;
     bottom: 0;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(10px);
-    z-index: 1001;
-    overflow-y: auto;
+
+    @media (max-width: 768px) {
+        width: 100%;
+        background: rgba(0, 0, 0, 0.2);
+        backdrop-filter: blur(10px);
+        z-index: 1001;
+        overflow-y: auto;
+    }
 
     &__content {
         padding: 6rem 2rem 2rem;

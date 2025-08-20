@@ -6,7 +6,6 @@ import Projects from '../sections/Projects';
 import Home from '../sections/Home';
 import About from '../sections/About';
 import Contact from '../sections/Contact';
-import QuestionMark from '../../assets/images/Question-mark.svg';
 import Questionmark from '../features/Questionmark';
 
 

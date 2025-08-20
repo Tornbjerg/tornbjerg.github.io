@@ -53,9 +53,14 @@ const FollowCursor: React.FC<FollowCursorProps> = ({ color = '#ffffff', zIndex =
                 this.lag = lag;
             }
 
-            moveTowards(x: number, y: number, context: CanvasRenderingContext2D) {
+            moveTowards(x: number, y: number, context: CanvasRenderingContext2D, shouldHide: boolean = false) {
                 this.position.x += (x - this.position.x) / this.lag;
                 this.position.y += (y - this.position.y) / this.lag;
+
+                // Hide cursor completely when hovering over "name" class
+                if (shouldHide) {
+                    return; // Don't draw anything
+                }
 
                 // Determine color and size based on hover state
                 let currentColor = color;
@@ -145,6 +150,13 @@ const FollowCursor: React.FC<FollowCursorProps> = ({ color = '#ffffff', zIndex =
             const className = element.className || '';
             const role = element.getAttribute('role') || '';
 
+            // Check if hovering over the "name" class (Benjamin image cursor)
+            if (className.includes('name') || element.closest('.name')) {
+                isHovering = false;
+                hoverType = '';
+                return;
+            }
+
             // Check for links
             if (tagName === 'a' || element.closest('a') || tagName === 'button' || role === 'button' ||
                 className.includes('btn') || className.includes('button') ||
@@ -214,7 +226,15 @@ const FollowCursor: React.FC<FollowCursorProps> = ({ color = '#ffffff', zIndex =
         const updateDot = () => {
             if (context) {
                 context.clearRect(0, 0, width, height);
-                dot.moveTowards(cursor.x, cursor.y, context);
+
+                // Check if we should hide the cursor (when hovering over "name" class)
+                const elementAtCursor = document.elementFromPoint(cursor.x, cursor.y);
+                const shouldHide = Boolean(elementAtCursor && (
+                    elementAtCursor.className.includes('name') ||
+                    elementAtCursor.closest('.name')
+                ));
+
+                dot.moveTowards(cursor.x, cursor.y, context, shouldHide);
             }
         };
 

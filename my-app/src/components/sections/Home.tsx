@@ -147,7 +147,7 @@ const Home: React.FC = () => {
                             </motion.span>
                         </motion.span>
                     </span>
-                    {' '}for your next project
+                    ...{' '}in your next project
                 </motion.p>
 
                 <motion.div
